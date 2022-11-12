@@ -1,23 +1,23 @@
+// ignore_for_file: file_names
 
-
+import 'package:countryapp/constants/consts.dart';
+import 'package:countryapp/model/country_model.dart';
+import 'package:countryapp/network/network_enum.dart';
 import 'package:flutter/material.dart';
-import 'package:hng9_country_info/constants/consts.dart';
-import 'package:hng9_country_info/model/country_model.dart';
-import 'package:hng9_country_info/network/network_enum.dart';
-import 'package:hng9_country_info/network/network_helper.dart';
-import 'package:hng9_country_info/network/network_service.dart';
 
-class CountryRespository{
+import 'package:countryapp/network/network_service.dart';
 
+import '../network/network_helper.dart';
 
+class CountryRespository {
   Future<List<Country>?> getData() async {
     final response = await NetworkService.sendRequest(
-        requestType: RequestType.get,
-        url: StaticValues.apiUrl,
-        queryParam: null);
+      requestType: RequestType.get,
+      urll: StaticValues.apiUrl,
+      queryParam: null,
+    );
 
     debugPrint('Response ${response?.statusCode}');
-
 
     return await NetworkHelper.filterResponse(
         callBack: _listOfCountriesFromJson,
@@ -27,24 +27,17 @@ class CountryRespository{
           debugPrint('Error type-$errorType - Message $msg');
           return null;
         });
-
   }
-  // Future<List<Country>?> fetchSearchData(String query) async {
-  //
-  //   return getData().then((value) => value!.map((e) => Country.fromJson(e)).where((country){
-  //     final countryV = country.name!.common!.toLowerCase();
-  //     final searchValue = query.toLowerCase();
-  //     return countryV.contains(searchValue);
-  //   }).toList());
-  //
-  // }
-    List<Country> _listOfCountriesFromJson(json) {
+
+  List<Country> _listOfCountriesFromJson(json) {
     List<Country> countryList = (json as List)
         .map((e) => Country.fromJson(e as Map<String, dynamic>))
         .toList();
     countryList.sort((a, b) {
-      return a.name!.common!.toLowerCase().compareTo(b.name!.common!.toLowerCase());
+      return a.name!.common!
+          .toLowerCase()
+          .compareTo(b.name!.common!.toLowerCase());
     });
-    return  countryList;
+    return countryList;
   }
 }

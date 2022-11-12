@@ -1,9 +1,14 @@
 import 'dart:async';
-import 'dart:convert';
-
-import 'package:flutter/material.dart';
+import 'package:countryapp/constants/lang.dart';
+import 'package:countryapp/widgets/countryCard.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:countryapp/config.dart';
+import 'package:countryapp/constants/styles.dart';
+import 'package:countryapp/main.dart';
+import 'package:countryapp/model/country_model.dart';
+import 'package:countryapp/provider/countryProvider.dart';
+import 'package:countryapp/repository/countryRepository.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -26,7 +31,7 @@ class Debouncer {
       timer!.cancel();
     }
     timer = Timer(
-      Duration(milliseconds: Duration.millisecondsPerSecond),
+      const Duration(milliseconds: Duration.millisecondsPerSecond),
       action,
     );
   }
@@ -41,7 +46,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     WidgetsBinding.instance.addPostFrameCallback((t) {
       Provider.of<CountryProvider>(context, listen: false)
           .setCountryData(CountryRespository().getData());
@@ -111,8 +115,6 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       height: 16.h,
                     ),
-                    // const SearchBar(),
-                    /// searchbar
                     Container(
                       height: 48.h,
                       width: 380.w,

@@ -1,7 +1,11 @@
+// ignore_for_file: file_names
+
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:countryapp/main.dart';
+import 'package:countryapp/model/country_model.dart';
+import 'package:countryapp/widgets/rowDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
 
 class CountryInfoPage extends StatefulWidget {
   final int? index;
@@ -19,10 +23,8 @@ class _CountryInfoPageState extends State<CountryInfoPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     if (widget.country!.flag != null) {
       items.add(widget.country!.flags!.png!);
-      print(widget.country!.flag!);
     }
     if (widget.country!.coatOfArms!.png != null) {
       items.add(widget.country!.coatOfArms!.png!);
@@ -129,7 +131,7 @@ class _CountryInfoPageState extends State<CountryInfoPage> {
               RowDetails(
                   name: strings.get(12),
                   value: widget.country!.currencies?.bBD?.name ?? 'Euro'),
-              RowDetails(name: 'GDP', value: "-----"),
+              const RowDetails(name: 'GDP', value: "-----"),
               SizedBox(
                 height: 24.h,
               ),

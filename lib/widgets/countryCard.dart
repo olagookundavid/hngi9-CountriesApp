@@ -1,7 +1,9 @@
+// ignore_for_file: file_names
+
+import 'package:countryapp/model/country_model.dart';
+import 'package:countryapp/ui/countryPageInfo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hng9_country_info/model/country_model.dart';
-import 'package:hng9_country_info/ui/countryPageInfo.dart';
 
 class CountryCard extends StatefulWidget {
   final String? abbr;
@@ -16,8 +18,9 @@ class CountryCard extends StatefulWidget {
       @required this.image,
       @required this.countryName,
       @required this.capital,
-       @required this.abbr,
-        @required this.index, @required this.country})
+      @required this.abbr,
+      @required this.index,
+      @required this.country})
       : super(key: key);
 
   @override
@@ -25,21 +28,23 @@ class CountryCard extends StatefulWidget {
 }
 
 class _CountryCardState extends State<CountryCard> {
-
-
   @override
   Widget build(BuildContext context) {
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        widget.abbr!.isEmpty? const SizedBox.shrink():Text(widget.abbr!),
+        widget.abbr!.isEmpty ? const SizedBox.shrink() : Text(widget.abbr!),
         GestureDetector(
-          onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (_)=>CountryInfoPage(index: widget.index, country: widget.country,)));
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (_) => CountryInfoPage(
+                          index: widget.index,
+                          country: widget.country,
+                        )));
           },
           child: ListTile(
-
             leading: widget.image != null
                 ? Container(
                     height: 50.h,
@@ -48,8 +53,7 @@ class _CountryCardState extends State<CountryCard> {
                         borderRadius: BorderRadius.circular(10.r),
                         image: DecorationImage(
                             image: NetworkImage(widget.image!),
-                          fit: BoxFit.cover
-                        )),
+                            fit: BoxFit.cover)),
                   )
                 : SizedBox(
                     height: 40.h,
