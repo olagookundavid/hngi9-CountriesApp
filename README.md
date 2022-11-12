@@ -67,5 +67,5 @@ Given more time i would have loved to add the following:
 
 ## Link to App
 
-- Appetize - [Link]()
+- Appetize - [Link](https://appetize.io/app/hyg4p6gbg6kwovs2vps4gkjacy)
 - Google drive - [Link](https://drive.google.com/file/d/1oBBP4Qjj2VJZUeZtwvhe2g-bevOaXH2G/view?usp=share_link)
