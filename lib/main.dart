@@ -58,7 +58,8 @@ class _MyAppState extends State<MyApp> {
           home: child,
         );
       },
-      child: const HomePage(),
+      child: null,
+      // child: const HomePage(),
     );
   }
 }

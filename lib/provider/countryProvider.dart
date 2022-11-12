@@ -1,17 +1,12 @@
+import 'package:flutter/material.dart';
 
+class CountryProvider extends ChangeNotifier {
+  Future<List<Country>?>? _getCountryData;
 
-// import 'package:flutter/material.dart';
+  Future<List<Country>?>? get getCountryData => _getCountryData;
 
-// class CountryProvider extends ChangeNotifier{
-
-//   Future<List<Country>?>? _getCountryData;
-
-//   Future<List<Country>?>? get getCountryData => _getCountryData;
-
-//   setCountryData(Future<List<Country>?>? countryData){
-//     _getCountryData =countryData;
-//     notifyListeners();
-//   }
-
-
-// }
+  setCountryData(Future<List<Country>?>? countryData) {
+    _getCountryData = countryData;
+    notifyListeners();
+  }
+}
