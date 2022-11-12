@@ -3,20 +3,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hng9_country_info/config.dart';
-import 'package:hng9_country_info/constants/consts.dart';
-import 'package:hng9_country_info/constants/lang.dart';
-import 'package:hng9_country_info/constants/styles.dart';
-import 'package:hng9_country_info/main.dart';
-import 'package:hng9_country_info/model/country_model.dart';
-import 'package:hng9_country_info/network/network_enum.dart';
-import 'package:hng9_country_info/network/network_helper.dart';
-import 'package:hng9_country_info/network/network_service.dart';
-import 'package:hng9_country_info/network/query_param.dart';
-import 'package:hng9_country_info/provider/countryProvider.dart';
-import 'package:hng9_country_info/repository/countryRepository.dart';
-import 'package:hng9_country_info/widgets/countryCard.dart';
-import 'package:hng9_country_info/widgets/searchbar.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -57,10 +43,12 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     // TODO: implement initState
     WidgetsBinding.instance.addPostFrameCallback((t) {
-      Provider.of<CountryProvider>(context,listen: false).setCountryData(CountryRespository().getData());
+      Provider.of<CountryProvider>(context, listen: false)
+          .setCountryData(CountryRespository().getData());
     });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     List alpha = [
@@ -98,7 +86,6 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.symmetric(horizontal: 24.0.w, vertical: 24.h),
           child: Consumer<CountryProvider>(
             builder: (_, provider, body) {
-
               return SingleChildScrollView(
                 child: Column(
                   children: [
@@ -200,8 +187,7 @@ class _HomePageState extends State<HomePage> {
                                         itemBuilder: (_, index) {
                                           return Padding(
                                               padding: EdgeInsets.only(
-                                                  left: 24.w,
-                                                  right: 24.w),
+                                                  left: 24.w, right: 24.w),
                                               child: ListTile(
                                                 title: Text(Lang()
                                                     .langData[index]
@@ -267,7 +253,7 @@ class _HomePageState extends State<HomePage> {
                         InkWell(
                           onTap: () => showModalBottomSheet(
                             backgroundColor:
-                            Theme.of(context).scaffoldBackgroundColor,
+                                Theme.of(context).scaffoldBackgroundColor,
                             context: context,
                             builder: (context) {
                               return SingleChildScrollView(
@@ -284,8 +270,7 @@ class _HomePageState extends State<HomePage> {
                                         itemBuilder: (_, index) {
                                           return Padding(
                                               padding: EdgeInsets.only(
-                                                  left: 24.w,
-                                                  right: 24.w),
+                                                  left: 24.w, right: 24.w),
                                               child: ListTile(
                                                 title: Text(Lang()
                                                     .langData[index]
@@ -300,8 +285,8 @@ class _HomePageState extends State<HomePage> {
                                                   onChanged:
                                                       (int? value) async {
                                                     SharedPreferences prefs =
-                                                    await SharedPreferences
-                                                        .getInstance();
+                                                        await SharedPreferences
+                                                            .getInstance();
                                                     setState(() {
                                                       langVal = value!;
                                                       prefs.setInt(
@@ -318,7 +303,6 @@ class _HomePageState extends State<HomePage> {
                               );
                             },
                           ),
-
                           child: Container(
                             height: 40.h,
                             width: 86.w,
