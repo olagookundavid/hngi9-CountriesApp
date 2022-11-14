@@ -61,11 +61,12 @@ The *widgets* folder contains reusable parts of the entire app that could be use
 ## Features to add
 
 Given more time i would have loved to add the following:
+- Make the app faster in loading data 
 - Ability to filter by even more options
 - Automatic dark mode support that takes the system theme mode, i only implemented the in App change of theme
 
 
 ## Link to App
 
-- Appetize - [Link](https://appetize.io/app/hyg4p6gbg6kwovs2vps4gkjacy)
-- Google drive - [Link](https://drive.google.com/file/d/1oBBP4Qjj2VJZUeZtwvhe2g-bevOaXH2G/view?usp=share_link)
+- Appetize - [Link](https://appetize.io/app/udcp2ax6ahey24sofyvorb2ida)
+- Google drive - [Link](https://drive.google.com/file/d/1pDAn0BrmCWhQe6AxheW_PdLdhItUIpyM/view?usp=share_link)

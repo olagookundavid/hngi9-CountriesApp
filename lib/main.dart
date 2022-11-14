@@ -1,6 +1,7 @@
 import 'package:countryapp/config.dart';
 import 'package:countryapp/constants/lang.dart';
 import 'package:countryapp/provider/countryProvider.dart';
+import 'package:countryapp/ui/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -15,14 +16,12 @@ void main() async {
   if (langu != null) {
     strings.setLang(langu);
   } else {
-    strings.setLang(Lang.francaise); // set default language - English
+    strings.setLang(Lang.francaise);
   }
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider<CountryProvider>(create: (_) => CountryProvider()),
   ], child: const MyApp()));
 }
-
-// CountryProvider() {}
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -48,19 +47,18 @@ class _MyAppState extends State<MyApp> {
       splitScreenMode: true,
       builder: (_, child) {
         return MaterialApp(
-          theme:
-              ThemeData(brightness: Brightness.light, fontFamily: 'Axiforma'),
+          theme: ThemeData(brightness: Brightness.light),
           darkTheme: ThemeData(
-              scaffoldBackgroundColor: const Color(0xff000F24),
-              brightness: Brightness.dark,
-              fontFamily: 'Axiforma'),
+            scaffoldBackgroundColor: const Color(0xff000F24),
+            brightness: Brightness.dark,
+          ),
           debugShowCheckedModeBanner: false,
           themeMode: currentTheme.currentTheme(),
           home: child,
         );
       },
-      child: null,
-      // child: const HomePage(),
+      // child: null,
+      child: const HomePage(),
     );
   }
 }
