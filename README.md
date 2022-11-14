@@ -27,29 +27,8 @@ In order to produce a great design interface and responsiveness, the following p
 - carousel_slider: this was to create a smooth and beautiful widget sliding 
 - modal_bottom_sheet: this was used to create a bottom sheet to hold supplementary screens while still on a main screen
 
-The *font* used was 'Axiforma', as this was recommended to be used by the design lead. The lib folder was divided into 6 subfolders to separate
-code concerns and allow for easy future additions/modifications.
+
 It has a model class which holds the country_model class and has the required structure needed by the project.
-
-The *constant* folder contains the following:
-- consts.dart: contains the constant apiURL
-- lang.dart: contains the localization class used to change languages
-- styles.dart: contains the styling used in some parts of the application
-
-The *network* folder contains the following important files:
-- network_enum.dart: this has the enum for network error types too help in handling errors
-- network_helper: this helps identifying and filtering the type of error from the correct response to aid error debugging
-- network_service: this is where the apiUrl gets parsed and http.Get or other requestType (Put, Post) are called
-
-The *provider* folder contains the countryProvider and themeNotifier provider, here the country data gotten from the network call 
-is called so the data is accessible throughout the app.
-
-The *repository* folder contains the countryRepository which gets the data finally and sorts it alphabetically
-
-Thw *ui* folder contains the screens for both pages of the app
-
-The *widgets* folder contains reusable parts of the entire app that could be used in other projects also
-
 
 ## Challenges faced
 
